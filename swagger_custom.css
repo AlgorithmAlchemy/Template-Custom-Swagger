@@ -1,0 +1,2866 @@
+/* === ENHANCED COLOR SCHEME AND BRANDING === */
+
+
+/* Support for attributes on the root element for instant application */
+
+
+/* Base styles for correct scrolling from the very beginning */
+
+html,
+body {
+    overflow-x: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    /* Force scroll to display webkit-scrollbar */
+    min-height: 101vh !important;
+}
+
+
+/* Prevent horizontal scroll on mobile devices */
+
+@media (max-width: 768px) {
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+    .top-export-strip {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow: visible !important;
+    }
+    .strip-left,
+    .strip-right {
+        overflow: visible !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media (max-width: 480px) {
+    html,
+    body {
+        overflow-x: hidden !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+    .top-export-strip {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow: visible !important;
+    }
+}
+
+
+/* Styles for webkit-scrollbar - scrollbar appears immediately on load */
+
+::-webkit-scrollbar {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
+    border-radius: 6px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1 !important;
+    border-radius: 6px !important;
+    border: 2px solid #f1f1f1 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8 !important;
+}
+
+
+/* Dark theme for scrollbar */
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #2d3748 !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: #4a5568 !important;
+    border: 2px solid #2d3748 !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: #718096 !important;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+
+/* Modern gradient background for the top strip */
+
+.top-export-strip {
+    background: linear-gradient(135deg, #111828 0%, #1a2332 25%, #2d3748 50%, #4a5568 75%, #718096 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    color: white;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Hard fix for position */
+    transform: translateZ(0) !important;
+    will-change: background;
+    /* Disable all transitions */
+    transition: none !important;
+    /* Prevent size changes */
+    height: auto !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    box-sizing: border-box !important;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.strip-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* Fix dimensions */
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Remove transition to prevent lag */
+    transition: none;
+    animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+
+/* Dark mode for logo */
+
+[data-theme="dark"] .logo {
+    color: #f7fafc !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .logo:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+
+/* Logo animation in dark mode */
+
+[data-theme="dark"] .logo {
+    animation: logoGlowDark 3s ease-in-out infinite;
+}
+
+@keyframes logoGlowDark {
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.strip-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Fix dimensions */
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+}
+
+
+/* === ENHANCED BUTTONS === */
+
+.export-btn,
+.export-dropdown-btn,
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    /* Remove transition to prevent lag */
+    transition: none;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+}
+
+
+/* Transparent background for buttons in dark mode */
+
+[data-theme="dark"] .export-btn,
+[data-theme="dark"] .export-dropdown-btn,
+[data-theme="dark"] .theme-toggle-btn,
+[data-theme="dark"] .contact-link {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    backdrop-filter: none !important;
+}
+
+
+/* Special styles for theme toggle button */
+
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 20px;
+    margin-left: 8px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.theme-icon {
+    font-size: 20px;
+    /* Remove transition to prevent lag */
+    transition: none;
+}
+
+.theme-toggle-btn:hover .theme-icon {
+    transform: rotate(180deg);
+}
+
+.export-btn:hover,
+.export-dropdown-btn:hover,
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    /* Remove transform to prevent lag */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Hover effects for buttons in dark mode */
+
+[data-theme="dark"] .export-btn:hover,
+[data-theme="dark"] .export-dropdown-btn:hover,
+[data-theme="dark"] .theme-toggle-btn:hover,
+[data-theme="dark"] .contact-link:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: none !important;
+}
+
+.export-btn:active,
+.export-dropdown-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Additional styles to ensure clickability */
+
+.export-dropdown-btn {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.export-dropdown {
+    pointer-events: auto !important;
+    z-index: 1000 !important;
+}
+
+
+/* === DROPDOWN MENU === */
+
+.export-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Responsiveness for dropdown menu */
+
+@media (max-width: 768px) {
+    .export-dropdown {
+        position: relative !important;
+    }
+    .export-dropdown-content {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: auto !important;
+        transform: none !important;
+        min-width: 200px;
+        max-width: 90vw;
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+        z-index: 10002;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    [data-theme="dark"] .export-dropdown-content {
+        background: rgba(13, 17, 23, 0.98) !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .export-dropdown-content {
+        min-width: 180px;
+        max-width: 85vw;
+        max-height: 75vh !important;
+        overflow-y: auto !important;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .export-dropdown-content {
+        min-width: 160px;
+        max-width: 80vw;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+        border-radius: 10px;
+    }
+}
+
+.export-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    min-width: 160px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 8px 0;
+    z-index: 1001;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: dropdownSlide 0.3s ease-out;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+
+/* Styles for scrollbar in dropdown menu */
+
+.export-dropdown-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.export-dropdown-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.export-dropdown-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.export-dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Dark theme for scrollbar in dropdown */
+
+[data-theme="dark"] .export-dropdown-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .export-dropdown-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .export-dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+/* Dark mode for dropdown menu */
+
+[data-theme="dark"] .export-dropdown-content {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: none !important;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Remove automatic opening on hover */
+
+
+/* .export-dropdown:hover .export-dropdown-content {
+    display: block;
+} */
+
+
+/* Styles for open state of dropdown */
+
+.export-dropdown.dropdown-open .export-dropdown-content {
+    display: block !important;
+    animation: dropdownSlide 0.3s ease-out;
+}
+
+
+/* Animation for closing dropdown */
+
+.export-dropdown-content {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.export-dropdown-content[style*="display: none"] {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+}
+
+
+/* Ensure full visibility of dropdown menu on all screens */
+
+.export-dropdown {
+    overflow: visible !important;
+    position: relative !important;
+}
+
+.export-dropdown-content {
+    overflow: visible !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: auto !important;
+    z-index: 10001 !important;
+}
+
+.export-dropdown-content a {
+    color: #333;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.export-dropdown-content a:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: translateX(5px);
+}
+
+
+/* Styles for active state of export button */
+
+.export-dropdown.dropdown-open .export-dropdown-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+
+/* Styles for touch feedback on mobile devices */
+
+.export-dropdown.touch-active .export-dropdown-btn {
+    transform: scale(0.95);
+    opacity: 0.8;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+
+/* Disable hover effects on touch devices */
+
+@media (hover: none) and (pointer: coarse) {
+    .export-dropdown:hover .export-dropdown-btn {
+        transform: none;
+        background: none;
+    }
+    .export-dropdown-content a:hover {
+        transform: none;
+        background: none;
+    }
+}
+
+
+/* Touch feedback for links in dropdown */
+
+.export-dropdown-content a.touch-active {
+    transform: scale(0.95) !important;
+    opacity: 0.8 !important;
+    transition: transform 0.1s ease, opacity 0.1s ease !important;
+}
+
+
+/* Additional styles for mobile devices */
+
+@media (max-width: 768px) {
+    .export-dropdown {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .export-dropdown-content a {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+    }
+}
+
+
+/* Dark mode for links in dropdown menu */
+
+[data-theme="dark"] .export-dropdown-content a {
+    color: #f0f6fc !important;
+    background: transparent !important;
+}
+
+[data-theme="dark"] .export-dropdown-content a:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    backdrop-filter: none !important;
+}
+
+
+/* === CONTACT LINKS === */
+
+.contact-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.contact-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+
+/* Dark mode for contact links */
+
+[data-theme="dark"] .contact-link {
+    background: transparent !important;
+    color: white !important;
+    backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .contact-link:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    transform: translateY(-1px) !important;
+    backdrop-filter: none !important;
+}
+
+
+/* === SWAGGER UI CONTAINER === */
+
+#swagger-ui {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+
+/* === PRELOADER === */
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(102, 126, 234, 0.2);
+    border-left: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* === RESPONSIVENESS === */
+
+
+/* Tablets and medium screens */
+
+@media (max-width: 1024px) {
+    .top-export-strip {
+        padding: 10px 20px;
+    }
+    .logo {
+        font-size: 17px;
+    }
+    .export-btn,
+    .export-dropdown-btn,
+    .theme-toggle-btn {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+    .contact-link {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+}
+
+
+/* Mobile devices */
+
+@media (max-width: 768px) {
+    /* Ensure full visibility of dropdown menu */
+    .export-dropdown {
+        z-index: 10003 !important;
+        position: relative !important;
+    }
+    .export-dropdown-content {
+        z-index: 10004 !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: auto !important;
+        transform: none !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+    .top-export-strip {
+        padding: 8px 12px;
+        flex-direction: column;
+        gap: 6px;
+        min-height: 80px !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    .strip-left,
+    .strip-right {
+        width: 100%;
+        justify-content: center;
+        height: 32px !important;
+        min-height: 32px !important;
+        max-height: 32px !important;
+    }
+    .logo {
+        font-size: 15px;
+        gap: 6px;
+    }
+    .strip-right {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .export-btn,
+    .export-dropdown-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+        min-width: 36px;
+    }
+    .theme-toggle-btn {
+        padding: 0;
+        min-width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+    .contact-link {
+        font-size: 11px;
+        padding: 4px 8px;
+        gap: 3px;
+    }
+    .export-dropdown-content {
+        right: auto;
+        left: 0;
+        min-width: 120px;
+        padding: 6px 0;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+    .export-dropdown-content a {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    #swagger-ui {
+        margin-top: 100px;
+        padding: 8px;
+    }
+}
+
+
+/* Small mobile devices */
+
+@media (max-width: 480px) {
+    /* Ensure full visibility of dropdown menu */
+    .export-dropdown {
+        z-index: 10003 !important;
+        position: relative !important;
+    }
+    .export-dropdown-content {
+        z-index: 10004 !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: auto !important;
+        transform: none !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+    .top-export-strip {
+        padding: 6px 8px;
+        gap: 4px;
+        min-height: 90px !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    .strip-left,
+    .strip-right {
+        height: 28px !important;
+        min-height: 28px !important;
+        max-height: 28px !important;
+    }
+    .logo {
+        font-size: 14px;
+        gap: 4px;
+    }
+    .strip-right {
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .export-btn,
+    .export-dropdown-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+        min-width: 32px;
+        border-radius: 6px;
+    }
+    .theme-toggle-btn {
+        min-width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    .contact-link {
+        font-size: 10px;
+        padding: 3px 6px;
+        gap: 2px;
+        border-radius: 4px;
+    }
+    .export-dropdown-content {
+        right: auto;
+        left: 0;
+        min-width: 100px;
+        padding: 4px 0;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+    .export-dropdown-content a {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    #swagger-ui {
+        margin-top: 110px;
+        padding: 6px;
+    }
+}
+
+
+/* Very small screens */
+
+@media (max-width: 360px) {
+    /* Ensure full visibility of dropdown menu */
+    .export-dropdown {
+        z-index: 10003 !important;
+        position: relative !important;
+    }
+    .export-dropdown-content {
+        z-index: 10004 !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: auto !important;
+        transform: none !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+    .top-export-strip {
+        padding: 4px 6px;
+        gap: 3px;
+        min-height: 100px !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    .strip-left,
+    .strip-right {
+        height: 26px !important;
+        min-height: 26px !important;
+        max-height: 26px !important;
+    }
+    .logo {
+        font-size: 13px;
+        gap: 3px;
+    }
+    .strip-right {
+        gap: 4px;
+    }
+    .export-btn,
+    .export-dropdown-btn {
+        padding: 3px 6px;
+        font-size: 9px;
+        min-width: 28px;
+        border-radius: 4px;
+    }
+    .theme-toggle-btn {
+        min-width: 28px;
+        height: 28px;
+        font-size: 12px;
+    }
+    .contact-link {
+        font-size: 9px;
+        padding: 2px 4px;
+        gap: 1px;
+        border-radius: 3px;
+    }
+    .export-dropdown-content {
+        right: auto;
+        left: 0;
+        min-width: 90px;
+        padding: 3px 0;
+        max-height: none !important;
+        overflow-y: visible !important;
+    }
+    .export-dropdown-content a {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+    #swagger-ui {
+        margin-top: 120px;
+        padding: 4px;
+    }
+}
+
+
+/* === ENHANCED ANIMATIONS AND MICROINTERACTIONS === */
+
+
+/* === MAIN ANIMATIONS === */
+
+
+/* Smooth appearance animation for elements */
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(15px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Appear from left animation */
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+
+/* Appear from right animation */
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+
+/* Scaling animation */
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Pulse */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+    }
+}
+
+
+/* Breathe */
+
+@keyframes breathe {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+
+/* Float */
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* Slow spin */
+
+@keyframes spinSlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Typing text */
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+
+/* Ripple effect */
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+
+/* Animation for scroll button */
+
+@keyframes scrollToTopBounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* Override hover effect for scroll button */
+
+.scroll-to-top-btn:hover {
+    transform: translateY(-5px) scale(1.1) !important;
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4) !important;
+    background: linear-gradient(135deg, #764ba2, #667eea) !important;
+    animation: scrollToTopBounce 1s ease-in-out;
+}
+
+
+/* Sliding notifications */
+
+@keyframes slideInNotification {
+    0% {
+        transform: translateX(100%) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Emoji picker pop-in */
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.3) rotate(-10deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+
+/* Success check */
+
+@keyframes successCheck {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Search pulse */
+
+@keyframes searchPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+    }
+}
+
+
+/* === ENHANCED GRADIENTS === */
+
+
+/* Dynamic gradient for top bar */
+
+.top-export-strip {
+    background: linear-gradient(135deg, #111828 0%, #1a2332 15%, #2d3748 30%, #4a5568 45%, #718096 60%, #a0aec0 75%, #111828 90%, #1a2332 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite, breathe 4s ease-in-out infinite;
+}
+
+
+/* === ENHANCED HOVER EFFECTS === */
+
+.export-btn:hover,
+.export-dropdown-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* Hover effects in dark mode - override aggressive rules */
+
+[data-theme="dark"] .export-btn:hover,
+[data-theme="dark"] .export-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: none !important;
+}
+
+
+/* === ANIMATIONS FOR SWAGGER UI === */
+
+
+/* API block appearance animation */
+
+.swagger-ui .opblock {
+    animation: fadeInUp 0.8s ease;
+    /* Remove transition to prevent lag */
+    transition: none;
+}
+
+.swagger-ui .opblock:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Animations for Swagger buttons */
+
+.swagger-ui .btn {
+    /* Remove transition to prevent lag */
+    transition: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.swagger-ui .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.swagger-ui .btn:hover::before {
+    left: 100%;
+}
+
+.swagger-ui .btn:hover {
+    /* Remove transform to prevent lag */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Animations for input fields */
+
+.swagger-ui input,
+.swagger-ui textarea,
+.swagger-ui select {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.swagger-ui input:focus,
+.swagger-ui textarea:focus,
+.swagger-ui select:focus {
+    /* Remove transform to prevent lag */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+
+/* === MAGNETIC BUTTONS === */
+
+.magnetic-button {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Dark mode for magnetic buttons */
+
+[data-theme="dark"] .magnetic-button {
+    background: transparent !important;
+    color: white !important;
+}
+
+
+/* === SCROLL TO TOP BUTTON === */
+
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remove show and show-on-hover classes by default */
+}
+
+.scroll-to-top-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+.scroll-to-top-btn:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.scroll-to-top-btn.show {
+    opacity: 0.3;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.8s ease, transform 0.5s ease;
+}
+
+.scroll-to-top-btn.show-on-hover {
+    opacity: 0.5;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.8s ease, transform 0.5s ease;
+}
+
+
+/* Proximity effect - gradual increase in brightness */
+
+.scroll-to-top-btn.show:hover,
+.scroll-to-top-btn.show-on-hover:hover {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1.05) !important;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+/* Special effect for activation within 50px radius */
+
+.scroll-to-top-btn.activated {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1.1) !important;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 25px rgba(102, 126, 234, 0.7) !important;
+}
+
+
+/* Comment on activation logic:
+ * 0-50px: full activation (brightness + glow + scale)
+ * 50-300px: normal proximity effect
+ * >300px: base state
+ */
+
+
+/* Hide button by default */
+
+.scroll-to-top-btn:not(.show):not(.show-on-hover) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(20px) scale(0.8) !important;
+}
+
+
+/* Dark mode for scroll button */
+
+[data-theme="dark"] .scroll-to-top-btn {
+    background: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 25px rgba(88, 166, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: none !important;
+    color: white !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, transform 0.2s ease;
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 9999 !important;
+}
+
+
+/* Additional styles for dark-mode class */
+
+.scroll-to-top-btn.dark-mode {
+    background: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 25px rgba(88, 166, 255, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: none !important;
+    color: white !important;
+}
+
+.scroll-to-top-btn.dark-mode:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 12px 35px rgba(88, 166, 255, 0.6) !important;
+    transform: translateY(-5px) scale(1.1) !important;
+    opacity: 1 !important;
+}
+
+.scroll-to-top-btn.dark-mode.show {
+    background: rgba(255, 255, 255, 0.2) !important;
+    opacity: 0.5 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+.scroll-to-top-btn.dark-mode.show-on-hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    opacity: 0.5 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+.scroll-to-top-btn.dark-mode.show:hover,
+.scroll-to-top-btn.dark-mode.show-on-hover:hover {
+    background: rgba(255, 255, 255, 0.35) !important;
+    opacity: 1 !important;
+    transform: translateY(0) scale(1.05) !important;
+}
+
+.scroll-to-top-btn.dark-mode.activated {
+    background: rgba(255, 255, 255, 0.45) !important;
+    opacity: 1 !important;
+    box-shadow: 0 0 25px rgba(88, 166, 255, 0.9) !important;
+    transform: translateY(0) scale(1.1) !important;
+}
+
+[data-theme="dark"] .scroll-to-top-btn:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 12px 35px rgba(88, 166, 255, 0.4) !important;
+    transform: translateY(-5px) scale(1.1) !important;
+    animation: scrollToTopBounce 1s ease-in-out;
+    backdrop-filter: none !important;
+}
+
+
+/* Proximity effect in dark mode */
+
+[data-theme="dark"] .scroll-to-top-btn.show:hover,
+[data-theme="dark"] .scroll-to-top-btn.show-on-hover:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    opacity: 1 !important;
+    transform: translateY(0) scale(1.05) !important;
+}
+
+
+/* Activation in dark mode */
+
+[data-theme="dark"] .scroll-to-top-btn.activated {
+    background: rgba(255, 255, 255, 0.4) !important;
+    opacity: 1 !important;
+    transform: translateY(0) scale(1.1) !important;
+    box-shadow: 0 0 25px rgba(88, 166, 255, 0.8) !important;
+}
+
+
+/* Button appearance animation */
+
+@keyframes scrollToTopAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(0.7);
+    }
+    20% {
+        opacity: 0.05;
+        transform: translateY(20px) scale(0.75);
+    }
+    40% {
+        opacity: 0.1;
+        transform: translateY(15px) scale(0.8);
+    }
+    60% {
+        opacity: 0.15;
+        transform: translateY(10px) scale(0.85);
+    }
+    80% {
+        opacity: 0.25;
+        transform: translateY(5px) scale(0.92);
+    }
+    100% {
+        opacity: 0.3;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.scroll-to-top-btn.animate {
+    animation: scrollToTopAppear 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* === NOTIFICATIONS === */
+
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    z-index: 10000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+    animation: slideInNotification 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/* Responsiveness for notifications */
+
+
+/* Responsiveness for scroll button */
+
+@media (max-width: 768px) {
+    .scroll-to-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-to-top-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .scroll-to-top-btn {
+        bottom: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+
+/* Additional styles for better responsiveness */
+
+@media (max-width: 768px) {
+    .scroll-to-top-btn.show,
+    .scroll-to-top-btn.show-on-hover {
+        opacity: 0.4 !important;
+        visibility: visible !important;
+        transform: translateY(0) scale(1) !important;
+        transition: opacity 0.8s ease, transform 0.5s ease;
+    }
+    .scroll-to-top-btn.show:hover,
+    .scroll-to-top-btn.show-on-hover:hover {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1.05) !important;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .scroll-to-top-btn.activated {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1.1) !important;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.7) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .notification {
+        top: 90px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .notification {
+        top: 100px;
+        right: 8px;
+        left: 8px;
+        padding: 10px 12px;
+        font-size: 13px;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    .notification {
+        top: 110px;
+        right: 6px;
+        left: 6px;
+        padding: 8px 10px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+}
+
+
+/* Dark mode for notifications */
+
+[data-theme="dark"] .notification {
+    background: rgba(13, 17, 23, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #f0f6fc !important;
+}
+
+
+/* === RESPONSIVENESS FOR ANIMATIONS === */
+
+@media (max-width: 768px) {
+    .top-export-strip {
+        animation: gradientShift 8s ease infinite;
+    }
+    .logo {
+        animation: none;
+    }
+    .export-btn:hover,
+    .export-dropdown-btn:hover {
+        transform: translateY(-1px) scale(1.02);
+    }
+}
+
+@media (max-width: 480px) {
+    .export-btn:hover,
+    .export-dropdown-btn:hover {
+        transform: translateY(-1px) scale(1.01);
+    }
+}
+
+@media (max-width: 360px) {
+    .export-btn:hover,
+    .export-dropdown-btn:hover {
+        transform: none;
+    }
+}
+
+
+/* === DISABLE ANIMATIONS FOR USERS WITH PREFERENCES === */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* === CUSTOM STYLES FOR SWAGGER UI === */
+
+.custom-info-style {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px 0;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.1);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s ease;
+}
+
+.custom-info-style h1,
+.custom-info-style h2,
+.custom-info-style h3 {
+    color: #667eea;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.custom-info-style p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+
+/* Appear from bottom animation */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* === DARK MODE === */
+
+
+/* CSS variables for themes */
+
+:root {
+    /* Light theme */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #e1e5e9;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --accent-color: #667eea;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #dc3545;
+}
+
+
+/* Dark theme */
+
+[data-theme="dark"] {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-muted: #6e7681;
+    --border-color: #30363d;
+    --border-color-light: #21262d;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --accent-color: #58a6ff;
+    --success-color: #3fb950;
+    --warning-color: #d29922;
+    --error-color: #f85149;
+    --overlay-color: rgba(1, 4, 9, 0.8);
+}
+
+
+/* Applying variables to main elements */
+
+[data-theme="dark"] body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .swagger-ui {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+
+/* Aggressive darkening for the whole page */
+
+[data-theme="dark"] body,
+[data-theme="dark"] html {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    background: var(--bg-primary) !important;
+    background-image: none !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+
+/* Force dark background for the page */
+
+[data-theme="dark"] {
+    background-color: var(--bg-primary) !important;
+    background: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--bg-primary) !important;
+    background: var(--bg-primary) !important;
+    background-image: none !important;
+}
+
+[data-theme="dark"] html {
+    background-color: var(--bg-primary) !important;
+    background: var(--bg-primary) !important;
+    background-image: none !important;
+}
+
+
+/* Darken the entire viewport */
+
+[data-theme="dark"] {
+    background-color: #0d1117 !important;
+    background: #0d1117 !important;
+}
+
+[data-theme="dark"] * {
+    background-color: #0d1117 !important;
+}
+
+
+/* Additional forced darkening */
+
+[data-theme="dark"] body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0d1117 !important;
+    z-index: -1;
+    pointer-events: none;
+}
+
+[data-theme="dark"] html::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0d1117 !important;
+    z-index: -2;
+    pointer-events: none;
+}
+
+
+/* Aggressive darkening of all page elements */
+
+[data-theme="dark"] * {
+    background-color: #0d1117 !important;
+    color: #f0f6fc !important;
+    border-color: #30363d !important;
+}
+
+
+/* Exceptions for SVG - they should not change color */
+
+[data-theme="dark"] svg,
+[data-theme="dark"] svg *,
+[data-theme="dark"] svg path,
+[data-theme="dark"] svg rect,
+[data-theme="dark"] svg circle,
+[data-theme="dark"] svg polygon,
+[data-theme="dark"] svg line,
+[data-theme="dark"] svg polyline,
+[data-theme="dark"] svg ellipse {
+    color: inherit !important;
+    background-color: transparent !important;
+}
+
+
+/* Additional darkening for all elements */
+
+[data-theme="dark"] html,
+[data-theme="dark"] body,
+[data-theme="dark"] div,
+[data-theme="dark"] span,
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] a,
+[data-theme="dark"] button,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] table,
+[data-theme="dark"] tr,
+[data-theme="dark"] td,
+[data-theme="dark"] th,
+[data-theme="dark"] ul,
+[data-theme="dark"] ol,
+[data-theme="dark"] li,
+[data-theme="dark"] section,
+[data-theme="dark"] article,
+[data-theme="dark"] aside,
+[data-theme="dark"] header,
+[data-theme="dark"] footer,
+[data-theme="dark"] nav,
+[data-theme="dark"] main {
+    background-color: #0d1117 !important;
+    color: #f0f6fc !important;
+    border-color: #30363d !important;
+}
+
+
+/* SVG elements excluded from aggressive darkening */
+
+[data-theme="dark"] svg,
+[data-theme="dark"] svg * {
+    background-color: transparent !important;
+    color: inherit !important;
+    border-color: transparent !important;
+}
+
+
+/* Darkening areas around the export panel and API description */
+
+[data-theme="dark"] .swagger-ui .info,
+[data-theme="dark"] .swagger-ui .scheme-container,
+[data-theme="dark"] .swagger-ui .opblock,
+[data-theme="dark"] .swagger-ui .opblock-summary,
+[data-theme="dark"] .swagger-ui .opblock-body,
+[data-theme="dark"] .swagger-ui .responses-table,
+[data-theme="dark"] .swagger-ui .parameters-container,
+[data-theme="dark"] .swagger-ui .model-box,
+[data-theme="dark"] .swagger-ui .model-title,
+[data-theme="dark"] .swagger-ui .model-box .model-box,
+[data-theme="dark"] .swagger-ui .model-box .model-box .model-box,
+[data-theme="dark"] .swagger-ui .wrapper,
+[data-theme="dark"] .swagger-ui .container,
+[data-theme="dark"] .swagger-ui .swagger-ui,
+[data-theme="dark"] .swagger-ui .swagger-container {
+    background-color: #0d1117 !important;
+}
+
+
+/* Additional darkening for areas around the export panel */
+
+[data-theme="dark"] .swagger-ui .info,
+[data-theme="dark"] .swagger-ui .info .title,
+[data-theme="dark"] .swagger-ui .info .description,
+[data-theme="dark"] .swagger-ui .info .contact,
+[data-theme="dark"] .swagger-ui .info .license,
+[data-theme="dark"] .swagger-ui .info .servers,
+[data-theme="dark"] .swagger-ui .info .servers-title,
+[data-theme="dark"] .swagger-ui .info .servers .servers>label,
+[data-theme="dark"] .swagger-ui .info .servers .servers>div,
+[data-theme="dark"] .swagger-ui .info .servers .servers>select,
+[data-theme="dark"] .swagger-ui .info .servers .servers>input,
+[data-theme="dark"] .swagger-ui .info .servers .servers>textarea,
+[data-theme="dark"] .swagger-ui .info .servers .servers>button,
+[data-theme="dark"] .swagger-ui .info .servers .servers>a,
+[data-theme="dark"] .swagger-ui .info .servers .servers>span,
+[data-theme="dark"] .swagger-ui .info .servers .servers>p,
+[data-theme="dark"] .swagger-ui .info .servers .servers>h1,
+[data-theme="dark"] .swagger-ui .info .servers .servers>h2,
+[data-theme="dark"] .swagger-ui .info .servers .servers>h3,
+[data-theme="dark"] .swagger-ui .info .servers .servers>h4,
+[data-theme="dark"] .swagger-ui .info .servers .servers>h5,
+[data-theme="dark"] .swagger-ui .info .servers .servers>h6 {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+
+/* Darkening areas around the API description */
+
+[data-theme="dark"] .swagger-ui .scheme-container,
+[data-theme="dark"] .swagger-ui .scheme-container .schemes-title,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-wrapper,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-container,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-container .auth-btn,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-container .auth-btn-wrapper,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-container .auth-btn-wrapper .authorize,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-container .auth-btn-wrapper .authorize button,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-container .auth-btn-wrapper .authorize button span,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-container .auth-btn-wrapper .authorize button svg,
+[data-theme="dark"] .swagger-ui .scheme-container .auth-container .auth-btn-wrapper .authorize button path {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+/* Aggressive darkening of all Swagger UI elements */
+
+[data-theme="dark"] .swagger-ui,
+[data-theme="dark"] .swagger-ui *,
+[data-theme="dark"] .swagger-ui div,
+[data-theme="dark"] .swagger-ui span,
+[data-theme="dark"] .swagger-ui p,
+[data-theme="dark"] .swagger-ui h1,
+[data-theme="dark"] .swagger-ui h2,
+[data-theme="dark"] .swagger-ui h3,
+[data-theme="dark"] .swagger-ui h4,
+[data-theme="dark"] .swagger-ui h5,
+[data-theme="dark"] .swagger-ui h6,
+[data-theme="dark"] .swagger-ui a,
+[data-theme="dark"] .swagger-ui button,
+[data-theme="dark"] .swagger-ui input,
+[data-theme="dark"] .swagger-ui textarea,
+[data-theme="dark"] .swagger-ui select,
+[data-theme="dark"] .swagger-ui table,
+[data-theme="dark"] .swagger-ui tr,
+[data-theme="dark"] .swagger-ui td,
+[data-theme="dark"] .swagger-ui th,
+[data-theme="dark"] .swagger-ui ul,
+[data-theme="dark"] .swagger-ui ol,
+[data-theme="dark"] .swagger-ui li,
+[data-theme="dark"] .swagger-ui section,
+[data-theme="dark"] .swagger-ui article,
+[data-theme="dark"] .swagger-ui aside,
+[data-theme="dark"] .swagger-ui header,
+[data-theme="dark"] .swagger-ui footer,
+[data-theme="dark"] .swagger-ui nav,
+[data-theme="dark"] .swagger-ui main {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+/* SVG in Swagger UI should not change color */
+
+[data-theme="dark"] .swagger-ui svg,
+[data-theme="dark"] .swagger-ui svg *,
+[data-theme="dark"] .swagger-ui svg path,
+[data-theme="dark"] .swagger-ui svg rect,
+[data-theme="dark"] .swagger-ui svg circle,
+[data-theme="dark"] .swagger-ui svg polygon,
+[data-theme="dark"] .swagger-ui svg line,
+[data-theme="dark"] .swagger-ui svg polyline,
+[data-theme="dark"] .swagger-ui svg ellipse {
+    background-color: transparent !important;
+    color: inherit !important;
+    border-color: transparent !important;
+    fill: inherit !important;
+    stroke: inherit !important;
+}
+
+
+/* Maximum aggressive darkening - all elements with any classes */
+
+[data-theme="dark"] [class*="swagger"],
+[data-theme="dark"] [class*="opblock"],
+[data-theme="dark"] [class*="info"],
+[data-theme="dark"] [class*="scheme"],
+[data-theme="dark"] [class*="auth"],
+[data-theme="dark"] [class*="model"],
+[data-theme="dark"] [class*="response"],
+[data-theme="dark"] [class*="parameter"],
+[data-theme="dark"] [class*="wrapper"],
+[data-theme="dark"] [class*="container"],
+[data-theme="dark"] [class*="header"],
+[data-theme="dark"] [class*="footer"],
+[data-theme="dark"] [class*="content"],
+[data-theme="dark"] [class*="panel"],
+[data-theme="dark"] [class*="section"],
+[data-theme="dark"] [class*="block"],
+[data-theme="dark"] [class*="item"],
+[data-theme="dark"] [class*="element"],
+[data-theme="dark"] [class*="component"],
+[data-theme="dark"] [class*="widget"],
+[data-theme="dark"] [class*="module"],
+[data-theme="dark"] [class*="area"],
+[data-theme="dark"] [class*="zone"],
+[data-theme="dark"] [class*="region"],
+[data-theme="dark"] [class*="part"],
+[data-theme="dark"] [class*="piece"],
+[data-theme="dark"] [class*="unit"],
+[data-theme="dark"] [class*="cell"],
+[data-theme="dark"] [class*="box"],
+[data-theme="dark"] [class*="card"],
+[data-theme="dark"] [class*="tile"],
+[data-theme="dark"] [class*="strip"],
+[data-theme="dark"] [class*="bar"],
+[data-theme="dark"] [class*="line"],
+[data-theme="dark"] [class*="row"],
+[data-theme="dark"] [class*="col"],
+[data-theme="dark"] [class*="grid"],
+[data-theme="dark"] [class*="flex"],
+[data-theme="dark"] [class*="layout"] {
+    background-color: #0d1117 !important;
+    color: #f0f6fc !important;
+    border-color: #30363d !important;
+}
+
+
+/* Exceptions for special elements */
+
+[data-theme="dark"] .swagger-ui .info,
+[data-theme="dark"] .swagger-ui .scheme-container,
+[data-theme="dark"] .swagger-ui .opblock,
+[data-theme="dark"] .swagger-ui .opblock-summary,
+[data-theme="dark"] .swagger-ui .opblock-body,
+[data-theme="dark"] .swagger-ui .responses-table,
+[data-theme="dark"] .swagger-ui .parameters-container,
+[data-theme="dark"] .swagger-ui .model-box,
+[data-theme="dark"] .swagger-ui .model-title,
+[data-theme="dark"] .swagger-ui .model-box .model-box,
+[data-theme="dark"] .swagger-ui .model-box .model-box .model-box {
+    background-color: var(--bg-primary) !important;
+}
+
+
+/* Dark mode for main Swagger containers */
+
+[data-theme="dark"] .swagger-ui .info,
+[data-theme="dark"] .swagger-ui .scheme-container,
+[data-theme="dark"] .swagger-ui .opblock,
+[data-theme="dark"] .swagger-ui .opblock-summary,
+[data-theme="dark"] .swagger-ui .opblock-summary-description,
+[data-theme="dark"] .swagger-ui .opblock-summary-path,
+[data-theme="dark"] .swagger-ui .opblock-summary-method,
+[data-theme="dark"] .swagger-ui .opblock-body,
+[data-theme="dark"] .swagger-ui .responses-table,
+[data-theme="dark"] .swagger-ui .parameters-container,
+[data-theme="dark"] .swagger-ui .model-box,
+[data-theme="dark"] .swagger-ui .model-title,
+[data-theme="dark"] .swagger-ui .model-box .model-box,
+[data-theme="dark"] .swagger-ui .model-box .model-box .model-box {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+/* Styles for authorization elements */
+
+[data-theme="dark"] .swagger-ui .auth-container input,
+[data-theme="dark"] .swagger-ui .auth-container select,
+[data-theme="dark"] .swagger-ui .auth-container textarea {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+/* Dark mode for text */
+
+[data-theme="dark"] .swagger-ui h1,
+[data-theme="dark"] .swagger-ui h2,
+[data-theme="dark"] .swagger-ui h3,
+[data-theme="dark"] .swagger-ui h4,
+[data-theme="dark"] .swagger-ui h5,
+[data-theme="dark"] .swagger-ui h6,
+[data-theme="dark"] .swagger-ui p,
+[data-theme="dark"] .swagger-ui span,
+[data-theme="dark"] .swagger-ui div,
+[data-theme="dark"] .swagger-ui label {
+    color: var(--text-primary) !important;
+}
+
+
+/* Special styles for API info section */
+
+[data-theme="dark"] .swagger-ui .info .title,
+[data-theme="dark"] .swagger-ui .info .title small,
+[data-theme="dark"] .swagger-ui .info .title .version-stamp {
+    color: #f7fafc !important;
+}
+
+[data-theme="dark"] .swagger-ui .info .description,
+[data-theme="dark"] .swagger-ui .info .description p,
+[data-theme="dark"] .swagger-ui .info .description div {
+    color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .swagger-ui .info .base-url,
+[data-theme="dark"] .swagger-ui .info .base-url a {
+    color: #cbd5e0 !important;
+}
+
+[data-theme="dark"] .swagger-ui .info .servers-title,
+[data-theme="dark"] .swagger-ui .info .servers .servers-title {
+    color: #f7fafc !important;
+}
+
+[data-theme="dark"] .swagger-ui .info .servers .servers select,
+[data-theme="dark"] .swagger-ui .info .servers .servers input {
+    color: #e2e8f0 !important;
+    background-color: #2d3748 !important;
+    border-color: #4a5568 !important;
+}
+
+
+/* Dark mode for buttons */
+
+[data-theme="dark"] .swagger-ui .btn,
+[data-theme="dark"] .swagger-ui button {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+    border-color: #4a5568 !important;
+}
+
+[data-theme="dark"] .swagger-ui .btn:hover,
+[data-theme="dark"] .swagger-ui button:hover {
+    background-color: #4a5568 !important;
+    color: #f7fafc !important;
+    border-color: #718096 !important;
+}
+
+
+/* Dark mode for input fields */
+
+[data-theme="dark"] .swagger-ui input,
+[data-theme="dark"] .swagger-ui textarea,
+[data-theme="dark"] .swagger-ui select {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+/* Dark mode for tables */
+
+[data-theme="dark"] .swagger-ui table,
+[data-theme="dark"] .swagger-ui th,
+[data-theme="dark"] .swagger-ui td {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+/* Dark mode for modals */
+
+[data-theme="dark"] .swagger-ui .modal,
+[data-theme="dark"] .swagger-ui .modal-content {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+/* Dark mode for code */
+
+[data-theme="dark"] .swagger-ui code,
+[data-theme="dark"] .swagger-ui pre {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+    border-color: #4a5568 !important;
+}
+
+
+/* Special styles for code in info section */
+
+[data-theme="dark"] .swagger-ui .info code,
+[data-theme="dark"] .swagger-ui .info pre,
+[data-theme="dark"] .swagger-ui .info .description code,
+[data-theme="dark"] .swagger-ui .info .description pre {
+    background-color: #1a202c !important;
+    color: #f7fafc !important;
+    border-color: #4a5568 !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+}
+
+
+/* Styles for contact and license info */
+
+[data-theme="dark"] .swagger-ui .info .contact,
+[data-theme="dark"] .swagger-ui .info .license {
+    color: #cbd5e0 !important;
+}
+
+[data-theme="dark"] .swagger-ui .info .contact a,
+[data-theme="dark"] .swagger-ui .info .license a {
+    color: #58a6ff !important;
+}
+
+[data-theme="dark"] .swagger-ui .info .contact a:hover,
+[data-theme="dark"] .swagger-ui .info .license a:hover {
+    color: #79c0ff !important;
+}
+
+
+/* Styles for API version */
+
+[data-theme="dark"] .swagger-ui .info .title small,
+[data-theme="dark"] .swagger-ui .info .title .version-stamp {
+    color: #a0aec0 !important;
+    font-weight: normal !important;
+}
+
+
+/* Dark mode for links */
+
+[data-theme="dark"] .swagger-ui a {
+    color: #58a6ff !important;
+}
+
+[data-theme="dark"] .swagger-ui a:hover {
+    color: #79c0ff !important;
+}
+
+
+/* Special styles for links in info section */
+
+[data-theme="dark"] .swagger-ui .info a,
+[data-theme="dark"] .swagger-ui .info .base-url a,
+[data-theme="dark"] .swagger-ui .info .description a {
+    color: #58a6ff !important;
+}
+
+[data-theme="dark"] .swagger-ui .info a:hover,
+[data-theme="dark"] .swagger-ui .info .base-url a:hover,
+[data-theme="dark"] .swagger-ui .info .description a:hover {
+    color: #79c0ff !important;
+    text-decoration: underline;
+}
+
+
+/* Optimized styles for main Swagger UI elements */
+
+[data-theme="dark"] .swagger-ui .info,
+[data-theme="dark"] .swagger-ui .scheme-container,
+[data-theme="dark"] .swagger-ui .opblock,
+[data-theme="dark"] .swagger-ui .opblock-summary,
+[data-theme="dark"] .swagger-ui .opblock-body,
+[data-theme="dark"] .swagger-ui .responses-table,
+[data-theme="dark"] .swagger-ui .parameters-container,
+[data-theme="dark"] .swagger-ui .model-box,
+[data-theme="dark"] .swagger-ui .model-title,
+[data-theme="dark"] .swagger-ui .auth-wrapper,
+[data-theme="dark"] .swagger-ui .auth-container,
+[data-theme="dark"] .swagger-ui .wrapper,
+[data-theme="dark"] .swagger-ui .container {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+
+/* Special exceptions for interactive elements */
+
+[data-theme="dark"] .swagger-ui .btn,
+[data-theme="dark"] .swagger-ui button,
+[data-theme="dark"] .swagger-ui input[type="button"],
+[data-theme="dark"] .swagger-ui input[type="submit"],
+[data-theme="dark"] .swagger-ui input[type="reset"],
+[data-theme="dark"] .swagger-ui .opblock-summary-method {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+    border-color: #4a5568 !important;
+}
+
+[data-theme="dark"] .swagger-ui .btn:hover,
+[data-theme="dark"] .swagger-ui button:hover,
+[data-theme="dark"] .swagger-ui input[type="button"]:hover,
+[data-theme="dark"] .swagger-ui input[type="submit"]:hover,
+[data-theme="dark"] .swagger-ui input[type="reset"]:hover {
+    background-color: #4a5568 !important;
+    color: #f7fafc !important;
+    border-color: #718096 !important;
+}
+
+
+/* Dark mode for top bar */
+
+[data-theme="dark"] .top-export-strip {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: none !important;
+    /* Keep hard position fix in dark mode */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    transform: translateZ(0) !important;
+    transition: none !important;
+    height: auto !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    box-sizing: border-box !important;
+}
+
+
+/* Additional styles for full transparency in dark mode */
+
+[data-theme="dark"] .strip-left,
+[data-theme="dark"] .strip-right {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .strip-left *,
+[data-theme="dark"] .strip-right * {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+
+/* Responsiveness for dark mode */
+
+@media (max-width: 768px) {
+    [data-theme="dark"] .top-export-strip {
+        min-height: 80px !important;
+        max-height: 80px !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    [data-theme="dark"] .top-export-strip {
+        min-height: 90px !important;
+        max-height: 90px !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+    }
+}
+
+@media (max-width: 360px) {
+    [data-theme="dark"] .top-export-strip {
+        min-height: 100px !important;
+        max-height: 100px !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+    }
+}
+
+
+/* Theme toggle animation */
+
+
+/* Disable all transitions to prevent lag */
+
+body {
+    /* Remove all transitions */
+    transition: none !important;
+}
+
+.swagger-ui * {
+    /* Remove all transitions */
+    transition: none !important;
+}
+
+
+/* Instant theme switch without animations */
+
+[data-theme="dark"] body,
+[data-theme="dark"] .swagger-ui,
+[data-theme="dark"] .swagger-ui * {
+    transition: none !important;
+}
+
+
+/* Prevent flickering on switch */
+
+body[data-theme="dark"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+
+/* Prevent content shifts */
+
+body {
+    padding-top: 60px !important;
+    margin-top: 0 !important;
+}
+
+#swagger-ui {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    /* Ensure correct scrolling */
+    width: 100% !important;
+    box-sizing: border-box !important;
+    /* Don't interfere with scrolling */
+    overflow: visible !important;
+}
+
+
+/* Darkening the main Swagger UI container */
+
+[data-theme="dark"] #swagger-ui {
+    background-color: #0d1117 !important;
+    background: #0d1117 !important;
+    color: #f0f6fc !important;
+}
+
+[data-theme="dark"] .swagger-ui {
+    background-color: #0d1117 !important;
+    background: #0d1117 !important;
+    color: #f0f6fc !important;
+}
+
+
+/* Force darkening of all Swagger UI elements */
+
+[data-theme="dark"] .swagger-ui *,
+[data-theme="dark"] #swagger-ui * {
+    background-color: #0d1117 !important;
+    background: #0d1117 !important;
+}
+
+
+/* Exceptions only for buttons and interactive elements */
+
+[data-theme="dark"] .swagger-ui .btn,
+[data-theme="dark"] .swagger-ui button,
+[data-theme="dark"] .swagger-ui input,
+[data-theme="dark"] .swagger-ui select,
+[data-theme="dark"] .swagger-ui textarea {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+    border-color: #4a5568 !important;
+}
+
+
+/* Optimization for theme toggle button */
+
+.theme-toggle-btn {
+    will-change: background-color, color;
+    transform: translateZ(0);
+}
+
+.theme-icon {
+    will-change: transform;
+    /* Remove transition to prevent lag */
+    transition: none;
+}
+
+
+/* Theme icon in dark mode */
+
+[data-theme="dark"] .theme-icon {
+    content: "";
+}
+
+
+/* Dark mode for theme toggle button */
+
+[data-theme="dark"] .theme-toggle-btn {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: #f7fafc !important;
+    backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: #ffffff !important;
+    backdrop-filter: none !important;
+}
+
+
+/* Special styles for "Try it out" and "Execute" buttons in dark mode */
+
+[data-theme="dark"] .swagger-ui .try-out__btn,
+[data-theme="dark"] .swagger-ui .execute-wrapper .btn {
+    background-color: #38a169 !important;
+    color: #ffffff !important;
+    border-color: #48bb78 !important;
+}
+
+[data-theme="dark"] .swagger-ui .try-out__btn:hover,
+[data-theme="dark"] .swagger-ui .execute-wrapper .btn:hover {
+    background-color: #48bb78 !important;
+    color: #ffffff !important;
+    border-color: #68d391 !important;
+}
+
+
+/* Styles for "Cancel" button in dark mode */
+
+[data-theme="dark"] .swagger-ui .try-out__btn.cancel {
+    background-color: #e53e3e !important;
+    color: #ffffff !important;
+    border-color: #f56565 !important;
+}
+
+[data-theme="dark"] .swagger-ui .try-out__btn.cancel:hover {
+    background-color: #f56565 !important;
+    color: #ffffff !important;
+    border-color: #fc8181 !important;
+}
+
+
+/* Dark mode for notifications */
+
+[data-theme="dark"] .notification {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: var(--text-primary) !important;
+    backdrop-filter: none !important;
+}
+
+
+/* Improved text selection for dark theme */
+
+[data-theme="dark"] ::selection {
+    background-color: #58a6ff !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] ::-moz-selection {
+    background-color: #58a6ff !important;
+    color: #ffffff !important;
+}
+
+
+/* Improved text selection for light theme */
+
+::selection {
+    background-color: #667eea !important;
+    color: #ffffff !important;
+}
+
+::-moz-selection {
+    background-color: #667eea !important;
+    color: #ffffff !important;
+}
+
+
+/* SVG icons should not change color in dark mode */
+
+[data-theme="dark"] svg,
+[data-theme="dark"] svg *,
+[data-theme="dark"] svg path,
+[data-theme="dark"] svg rect,
+[data-theme="dark"] svg circle,
+[data-theme="dark"] svg polygon,
+[data-theme="dark"] svg line,
+[data-theme="dark"] svg polyline,
+[data-theme="dark"] svg ellipse {
+    fill: inherit !important;
+    stroke: inherit !important;
+    color: inherit !important;
+}
+
+
+/* Specifically for lock and arrow icons */
+
+[data-theme="dark"] svg.arrow,
+[data-theme="dark"] svg[class*="lock"],
+[data-theme="dark"] svg[class*="arrow"] {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+    color: currentColor !important;
+}
+
+
+/* For all SVG in Swagger UI */
+
+[data-theme="dark"] .swagger-ui svg,
+[data-theme="dark"] .swagger-ui svg * {
+    fill: inherit !important;
+    stroke: inherit !important;
+    color: inherit !important;
+}
+
+
+/* Special styles for specific SVG icons */
+
+[data-theme="dark"] svg[viewBox="0 0 20 20"],
+[data-theme="dark"] svg[aria-hidden="true"],
+[data-theme="dark"] svg[focusable="false"] {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+    color: currentColor !important;
+}
+
+
+/* For icons with specific paths */
+
+[data-theme="dark"] svg path[d*="M15.8 8H14V5.6C14 2.703"],
+[data-theme="dark"] svg path[d*="M17.418 6.109c.272-.268"] {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+    color: currentColor !important;
+}
+
+
+/* Exceptions for SVG in the top bar */
+
+[data-theme="dark"] .top-export-strip svg,
+[data-theme="dark"] .top-export-strip svg * {
+    fill: white !important;
+    stroke: white !important;
+    color: white !important;
+}
+
+
+/* === RESPONSIVE STYLES FOR "FILTER BY TAG" INPUT FIELD === */
+
+
+/* Base styles for the search field */
+
+.operation-filter-input {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 200px;
+    padding: 10px 14px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    background-color: #fff !important;
+    color: #333 !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+}
+
+.operation-filter-input:focus {
+    outline: none !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    background-color: #fff !important;
+}
+
+
+/* Dark mode for the search field */
+
+[data-theme="dark"] .operation-filter-input {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+    border-color: #4a5568 !important;
+}
+
+[data-theme="dark"] .operation-filter-input:focus {
+    border-color: #58a6ff !important;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1) !important;
+    background-color: #2d3748 !important;
+}
+
+
+/* Responsiveness for tablets */
+
+@media (max-width: 1024px) {
+    .operation-filter-input {
+        min-width: 180px;
+        padding: 9px 13px !important;
+        font-size: 14px !important;
+    }
+}
+
+
+/* Responsiveness for mobile devices */
+
+@media (max-width: 768px) {
+    .operation-filter-input,
+    .swagger-ui input.operation-filter-input,
+    .swagger-ui .operation-filter input,
+    input.operation-filter-input[type="text"],
+    input.operation-filter-input[placeholder="Filter by tag"] {
+        width: 85% !important;
+        max-width: 85% !important;
+        min-width: 250px !important;
+        padding: 12px 16px !important;
+        font-size: 16px !important;
+        border-radius: 10px !important;
+        margin: 0 8px !important;
+    }
+}
+
+
+/* Responsiveness for iPhone 12 Pro and similar devices (390x844) */
+
+@media (max-width: 480px) {
+    .operation-filter-input,
+    .swagger-ui input.operation-filter-input,
+    .swagger-ui .operation-filter input,
+    input.operation-filter-input[type="text"],
+    input.operation-filter-input[placeholder="Filter by tag"] {
+        width: 82% !important;
+        max-width: 82% !important;
+        min-width: 200px !important;
+        padding: 14px 18px !important;
+        font-size: 16px !important;
+        border-radius: 12px !important;
+        margin: 0 12px !important;
+    }
+}
+
+
+/* Responsiveness for very small screens */
+
+@media (max-width: 360px) {
+    .operation-filter-input,
+    .swagger-ui input.operation-filter-input,
+    .swagger-ui .operation-filter input,
+    input.operation-filter-input[type="text"],
+    input.operation-filter-input[placeholder="Filter by tag"] {
+        width: 78% !important;
+        max-width: 78% !important;
+        min-width: 180px !important;
+        padding: 12px 16px !important;
+        font-size: 15px !important;
+        border-radius: 10px !important;
+        margin: 0 16px !important;
+    }
+}
+
+
+/* Special styles for the search field container */
+
+.operation-filter {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 8px 0 !important;
+    box-sizing: border-box !important;
+}
+
+
+/* Container responsiveness */
+
+@media (max-width: 768px) {
+    .operation-filter {
+        padding: 8px 12px !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .operation-filter {
+        padding: 10px 16px !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .operation-filter {
+        padding: 8px 12px !important;
+        width: 100% !important;
+    }
+}
+
+
+/* Force stretching of the search field */
+
+input[type="text"].operation-filter-input {
+    width: 85% !important;
+    max-width: 85% !important;
+    box-sizing: border-box !important;
+}
+
+
+/* More specific selectors for forced application */
+
+.swagger-ui input.operation-filter-input,
+.swagger-ui .operation-filter input,
+input.operation-filter-input[type="text"],
+input.operation-filter-input[placeholder="Filter by tag"] {
+    width: 85% !important;
+    max-width: 85% !important;
+    min-width: 250px !important;
+    box-sizing: border-box !important;
+}
+
+
+/* Styles for placeholder */
+
+.operation-filter-input::placeholder {
+    color: #999 !important;
+    opacity: 1 !important;
+}
+
+[data-theme="dark"] .operation-filter-input::placeholder {
+    color: #8b949e !important;
+    opacity: 1 !important;
+}
