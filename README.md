@@ -1,13 +1,15 @@
 # Custom Swagger UI Template
 
+[🇷🇺 Читать на русском](README_ru.md)
+
 A template for customizing the standard Swagger UI. This template replaces the default top bar with a custom, brandable one, and adds features like API specification export, dark mode, and enhanced micro-interactions.
 
-![Custom Swagger UI Screenshot](https://user-images.githubusercontent.com/12345/some-image.png) <!-- It's a good idea to add a screenshot of your custom UI -->
+![Custom Swagger UI Screenshot](https://user-images.githubusercontent.com/12345/some-image.png) 
 
 ## ✨ Features
 
 -   **Custom Branded Top Bar**: Easily add your company logo, custom links, and contact information.
--   **API Specification Export**: Buttons to export the API definition in `JSON` and `YAML` formats.
+-   **API Specification Export**: Buttons to export the API definition in `JSON` and `YAML`, `PDF` formats.
 -   **Dark Mode**: A sleek, modern dark theme for the entire UI, toggleable by the user.
 -   **Responsive Design**: The custom UI is fully responsive and works on mobile devices.
 -   **Enhanced Micro-interactions**: Smooth animations, ripple effects on buttons, and scroll-to-top functionality for a better user experience.
