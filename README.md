@@ -1,10 +1,11 @@
 # Custom Swagger UI Template
 
-[🇷🇺 Читать на русском](README_ru.md)
+[🇬🇧 English](README.md) | [🇷🇺 Русский](README_ru.md) | [🇪🇸 Español](README_es.md)
 
 A template for customizing the standard Swagger UI. This template replaces the default top bar with a custom, brandable one, and adds features like API specification export, dark mode, and enhanced micro-interactions.
 
-![Custom Swagger UI Screenshot](https://user-images.githubusercontent.com/12345/some-image.png) 
+<img src="swagger.png" alt="Custom Swagger UI Screenshot" width="50%">
+
 
 ## ✨ Features
 
