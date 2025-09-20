@@ -7,7 +7,7 @@ Plantilla para personalizar la interfaz estándar de Swagger UI. Esta plantilla 
 <img src="swagger.png" alt="Custom Swagger UI Screenshot" width="50%">
 
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 * **Barra superior personalizada con marca**: agrega fácilmente el logotipo de tu empresa, enlaces personalizados e información de contacto.
 * **Exportación de especificaciones API**: botones para exportar la definición de la API en formatos `JSON` y `YAML`.
@@ -16,7 +16,7 @@ Plantilla para personalizar la interfaz estándar de Swagger UI. Esta plantilla 
 * **Microinteracciones mejoradas**: animaciones fluidas, efectos de onda en los botones y un botón para volver arriba, mejorando la experiencia del usuario.
 * **Integración sencilla**: solo necesitas incluir los archivos CSS y JavaScript en tu configuración existente de Swagger UI.
 
-## 🚀 Comenzando
+## Comenzando
 
 ### Requisitos previos
 
@@ -83,7 +83,7 @@ En tu archivo HTML que carga Swagger UI, incluye los archivos CSS y JavaScript p
 </html>
 ```
 
-## 🔧 Configuración
+## Configuración
 
 Puedes personalizar la barra superior editando `custom-swagger.js`.
 
@@ -92,17 +92,17 @@ Puedes personalizar la barra superior editando `custom-swagger.js`.
 
 Los estilos se pueden modificar en `custom-swagger.css` y `swagger_custom.css`.
 
-## 📂 Estructura de archivos
+## Estructura de archivos
 
 * `custom-swagger.js`: maneja la creación de la barra superior personalizada y sus elementos.
 * `custom-swagger.css`: contiene los estilos para la barra superior personalizada.
 * `swagger_custom.js`: incluye la lógica para funciones avanzadas como cambio de tema, microinteracciones y el botón de volver arriba.
 * `swagger_custom.css`: contiene los estilos para el tema oscuro, diseño adaptable y otras mejoras de UI.
 
-## 🤝 Contribuciones
+## Contribuciones
 
 ¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request.
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está licenciado bajo la licencia MIT. Consulta el archivo [LICENSE.md](LICENSE.md) para más detalles.

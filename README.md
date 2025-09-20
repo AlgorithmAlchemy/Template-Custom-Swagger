@@ -7,7 +7,7 @@ A template for customizing the standard Swagger UI. This template replaces the d
 <img src="swagger.png" alt="Custom Swagger UI Screenshot" width="50%">
 
 
-## ✨ Features
+## Features
 
 -   **Custom Branded Top Bar**: Easily add your company logo, custom links, and contact information.
 -   **API Specification Export**: Buttons to export the API definition in `JSON` and `YAML`, `PDF` formats.
@@ -16,7 +16,7 @@ A template for customizing the standard Swagger UI. This template replaces the d
 -   **Enhanced Micro-interactions**: Smooth animations, ripple effects on buttons, and scroll-to-top functionality for a better user experience.
 -   **Easy Integration**: Simply include the CSS and JavaScript files in your existing Swagger UI setup.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -83,7 +83,7 @@ In your HTML file that serves Swagger UI, include the custom CSS and JavaScript 
 </html>
 ```
 
-## 🔧 Configuration
+## Configuration
 
 You can customize the top bar by editing `custom-swagger.js`.
 
@@ -92,17 +92,17 @@ You can customize the top bar by editing `custom-swagger.js`.
 
 The styles can be modified in `custom-swagger.css` and `swagger_custom.css`.
 
-## 📂 File Structure
+## File Structure
 
 -   `custom-swagger.js`: Handles the creation of the custom top bar and its elements.
 -   `custom-swagger.css`: Provides the styles for the custom top bar.
 -   `swagger_custom.js`: Contains logic for advanced features like theme switching, micro-interactions, and the scroll-to-top button.
 -   `swagger_custom.css`: Contains extensive styles for the dark theme, responsive design, and other UI enhancements.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
