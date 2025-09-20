@@ -625,14 +625,14 @@ function initializeExportDropdown() {
     function openDropdown() {
         exportDropdownContent.classList.add('show');
         exportDropdownOpen = true;
-        console.log('📂 Dropdown menu opened');
+        console.log('Dropdown menu opened');
     }
 
     // Function to close dropdown
     function closeDropdown() {
         exportDropdownContent.classList.remove('show');
         exportDropdownOpen = false;
-        console.log('📂 Dropdown menu closed');
+        console.log('Dropdown menu closed');
     }
 
     // Function to toggle dropdown
